@@ -1,0 +1,133 @@
+<! DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" ></script>
+<title>COMPOUND INTEREST CALCULATOR</title>
+<style>
+body{
+	background: #333366;
+	font-family: 'Montserrat', sans-serif;
+}
+.lead{
+text-align:center;
+}
+
+h6{
+font-weight:bold;
+
+}
+
+.lead{
+
+font-size:22px;
+font-weight:bold;
+color: #003366;
+}
+
+
+</style>
+</head>
+<body id="body">
+
+<div class="container" id="container">
+<div class="row">
+<div class="col-md-6 m-auto">
+<div class="card m-2 mt-5 p-4">
+<p class="lead"><i class="fa fa-calculator" aria-hidden="true"></i>&#160;COMPOUND INTEREST CALCULATOR</p>
+<div class="card-content">
+<form>
+<div class="form-group">
+<label  class="control-label" for="amount">Enter the Amount</label>
+<div class="input-group">
+<div class="input-group-append">
+      <button class="btn btn-info" type="button">
+       <i class="fa fa-inr" aria-hidden="true"></i>
+      </button>
+	  </div>
+	  <input class="form-control" type = "number" class="corner" id="p" placeholder =  "Enter the Amount">
+	  </div>
+</div>
+<div class="form-group">
+<label for="amount"> Enter Rate of Interest</label>
+<div class="input-group">
+<div class="input-group-append">
+      <button class="btn btn-info" type="button">
+       <i class="fa fa-percent" aria-hidden="true"></i>
+      </button>
+	  </div>
+<input class="form-control" type = "number" class="corner" id="n" placeholder =   "Enter Rate of  Interest">
+</div>
+</div>
+<div class="form-group">
+<label for="amount"> Enter number of years</label>
+<div class="input-group">
+<div class="input-group-append">
+      <button class="btn btn-info" type="button">
+       <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+      </button>
+	  </div>
+<input class="form-control" type = "number" class="corner" id="t" placeholder =   "Enter number of years">
+</div>
+</div>
+<div class="form-group">
+<label for="amount">Enter compounding times per year</label>
+<div class="input-group">
+<div class="input-group-append">
+      <button class="btn btn-info" type="button">
+       <i class="fa fa-calendar-times-o" aria-hidden="true"></i>
+      </button>
+	  </div>
+<input class="form-control" type = "number" class="corner" id="r" placeholder = "Enter compounding times per year">
+</div>
+</div>
+<button type="submit" class="btn btn-outline-info btn-block" id="button">COMPOUND INTEREST</button>
+</form>
+</div>
+
+<div id ="output"></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+
+document.getElementById("button").addEventListener("click",function(e){
+var p = document.getElementById("p").value;
+var n = document.getElementById("n").value;
+var t = document.getElementById("t").value;
+var r = document.getElementById("r").value;
+var output = document.getElementById("output")	
+var A = (p* Math.pow((1 + (r/(n*100))), (n*t)));
+var amounta = A.toFixed(2);
+var amountb =(A.toFixed(2) - p).toFixed(2);
+output.innerHTML = 	
+`<div class="contaniner">
+<div class="row">
+<div class="col-sm-6">
+<div class="card">
+<div class="card-content">
+<h6 id="h5" class="p-4 text-center">TOTAL AMOUNT</h3>
+<p class="lead"><i class="fa fa-inr" aria-hidden="true"></i> ${amounta}</p>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="card">
+<div class="card-content">
+<h6 id="h5" class="p-4 text-center">INTEREST AMOUNT</h3>
+<p class="lead" id="amountb"><i class="fa fa-inr" aria-hidden="true"></i> ${amountb}</p>
+</div>
+</div>
+</div>`
+e.preventDefault();
+});
+
+</script>
+</body>
+</html>
+
+
+
